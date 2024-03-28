@@ -1,10 +1,14 @@
-local function curr_location()
+local function create_dir()
     vim.ui.input({ prompt = "Dir name: " }, function(input)
-        local path = vim.fn.expand("%:p:h")
-        vim.cmd(path .. "/" .. input)
+        if input == nil then
+            print("No input, aborting.")
+            return
+        end
+
+        vim.cmd("!mkdir -pv " .. input)
     end)
 end
 
 return {
-    curr_location = curr_location,
+    create_dir = create_dir
 }
