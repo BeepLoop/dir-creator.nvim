@@ -5,4 +5,6 @@ local function curr_location()
     end)
 end
 
-curr_location()
+return {
+    curr_location = curr_location,
+}
