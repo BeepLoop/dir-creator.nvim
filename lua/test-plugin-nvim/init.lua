@@ -1,4 +1,6 @@
-local function create_dir()
+local test_plugin = {}
+
+test_plugin.create_dir = function()
     vim.ui.input({ prompt = "Dir name: " }, function(input)
         if input == nil then
             print("No input, aborting.")
@@ -9,6 +11,4 @@ local function create_dir()
     end)
 end
 
-return {
-    create_dir = create_dir
-}
+return test_plugin
