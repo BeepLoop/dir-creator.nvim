@@ -7,7 +7,10 @@ M.create_dir = function()
             return
         end
 
-        vim.cmd("!mkdir -pv " .. input)
+        for dir in string.gmatch(input, "([^%s]+)") do
+            vim.cmd("!mkdir -pv " .. dir)
+        end
+
     end)
 end
 
